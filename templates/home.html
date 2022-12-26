@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Roshni India Motor</title>
+</head>
+<body>
+	<div class="border">
+		<div>
+			{% include "navbar.html" %}    
+		</div>
+
+		<div class="imgslide" align="center">
+			<ul>
+			  <li>
+			    <span>New York</span>
+			    <img src='http://i1276.photobucket.com/albums/y465/gaeowyn/new_york_city_2-wallpaper-960x540_zpsce336d7f.jpg' /></li>
+			  
+			  <li>
+			    <span>London</span>
+			    <img src='http://i1276.photobucket.com/albums/y465/gaeowyn/london_in_black_and_white-wallpaper-960x540_zpsa7fa9d45.jpg' /></li>
+			  
+			  <li>
+			    <span>Poznań</span>
+			    <img src='http://i1276.photobucket.com/albums/y465/gaeowyn/poznan_poland-wallpaper-960x540_zps6a5470ed.jpg' /></li>
+			  
+			  <li>
+			    <span>Chicago</span>
+			    <img src='http://i1276.photobucket.com/albums/y465/gaeowyn/cityscape_skyline_chicago_sculpture-wallpaper-960x540_zps19c2d09d.jpg' />
+			  </li>
+			  
+			  <li>
+			    <span>Golden Gate</span>
+			    <img src='http://i1276.photobucket.com/albums/y465/gaeowyn/golden_gate_in_fog-wallpaper-960x540_zps1f6fc1af.jpg' />
+			  </li>
+			</ul>
+		</div>
+
+		<div align="center" style="width: 80%; margin: auto; font-size: 20px;">
+			<h3 style="text-decoration: underline;">About Us</h3>
+			<p>Established in year 2010, We, Roshni India Motors, are acknowledged in the industry as one of the prominent organizations, which is engaged in Manufacturing, Wholesaling and Trading  a comprehensive range of Air Filters, Diesel Filters, Hydraulic Filters, Oil Filters and much more. Completed in agreement with set industry norms and standards at our end, offered range is highly cherished among clients for their sturdiness, accurate designs and longer working life.</p>
+			<a style="font-size: 14px; color: gold; text-decoration: none;" href="{% url 'about' %}"><h4><〘 Read More 〙></h4></a>
+		</div>
+
+		<hr style="width: 40%; margin-top: 2%; margin-left: auto; margin-right: auto; border-color: #FCBDB4;">
+
+		<div>
+			<table width="100%" class="feature">
+				<tr>
+					<th rowspan="2" style="width: 7%; text-align: right;"><span class="material-symbols-outlined">factory</span></th>
+					<th style="width: 18%;">Nature Of Business</th>
+					<th rowspan="2" style="width: 7%; text-align: right;"><span class="material-symbols-outlined">groups</span></th>
+					<th style="width: 18%;">Total Number of Employees</th>
+					<th rowspan="2" style="width: 7%; text-align: right;"><span class="material-symbols-outlined">apartment</span></th>
+					<th style="width: 18%;">Year Of Establishment</th>
+					<th rowspan="2" style="width: 7%; text-align: right;"><span class="material-symbols-outlined">balance</span></th>
+					<th style="width: 18%;">Legal Status of Firm</th>
+				</tr>
+				<tr>
+					<td>OEM Manufacturer</td>
+					<td>26 to 50 People</td>
+					<td>2010</td>
+					<td>Individual - Proprietor</td>
+				</tr>
+			</table>
+
+			<table style="margin-top: 1%; margin-left: auto; margin-right: auto;" class="feature">
+				<tr>
+					<th rowspan="2" style="width: 7%; text-align: right;"><span class="material-symbols-outlined">factory</span></th>
+					<th style="width: 18%;">Annual Turnover</th>
+					<th rowspan="2" style="width: 7%; text-align: right;"><span class="material-symbols-outlined">groups</span></th>
+					<th style="width: 18%;">GST Number</th>
+				</tr>
+				<tr>
+					<td>Upto Rs. 50 Lakh</td>
+					<td>07AGUPR7611J1ZQ</td>
+				</tr>
+			</table>
+		</div>
+
+		<hr style="width: 40%; border-color: #FCBDB4; margin-top: 2%; margin-left: auto; margin-right: auto;">
+
+		<div class="slider">
+			{% include 'slider.html' %}
+		</div>
+
+		<div>
+			{% include "footer.html" %}    
+		</div>
+
+	</div>
+</body>
+</html>

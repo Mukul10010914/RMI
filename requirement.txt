@@ -1,0 +1,14 @@
+numpy==1.23.3
+packaging==21.3
+pandas==1.5.0
+Pillow==9.2.0
+platformdirs==2.5.2
+pyparsing==3.0.9
+python-dateutil==2.8.2
+pytz==2022.2.1
+scikit-learn==1.1.2
+scipy==1.9.1
+six==1.16.0
+sklearn==0.0
+threadpoolctl==3.1.0
+virtualenv==20.16.6

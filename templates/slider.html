@@ -1,0 +1,24 @@
+<h2>Our Products</h2>
+<table cellspacing="10px" cellpadding="5px">
+	<tr>
+		{% for t in s %}
+		<td>
+			<table class="extra">
+				<tr><th colspan="2"><img src="{{ t.img.url }}"></th></tr>
+				<tr><th colspan="2">{{ t.name }}</th></tr>
+				<tr><td>Feature</td><td>{{ t.feature }}</td></tr>
+				<tr><td>Price</td><td>Rs.{{ t.price }} / Per Piece</td></tr>
+				<tr><td>Usage</td><td>{{ t.usage }}</td></tr>
+				<tr>
+					<td colspan="2">
+						<form id="form1" method="POST" action="{% url 'desc' %}">
+							{% csrf_token %}
+							<button form="form1" name="pname" type="submit" class="btn-primary" value="{{ t.name }}">More</button>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+		{% endfor %}
+	</tr>
+</table>
