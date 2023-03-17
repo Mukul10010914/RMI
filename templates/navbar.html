@@ -1,0 +1,87 @@
+{% load static %}
+<div align="center">
+    <div class="img_sec">
+        <div id="i">
+            <figure class="img1">
+                <img align="left" src="{% static 'bg.png' %}">
+                <figcaption>Mujme hai wo Dum</figcaption>
+            </figure>
+        </div>
+
+        <div id="b">
+            <div class="but">
+                <button onclick="location.href='{% url 'enqueryy' %}'">Send Enquery</button>
+            </div>
+
+            <div class="but">
+                <form method="POST" action="{% url 'search' %}">
+                    {% csrf_token %}
+                    <input type="text" name="prname">
+                    <button style="margin-left: 2px;"><span class="material-symbols-outlined">search</span></button>
+                </form>
+            </div>
+        </div> 
+    </div>
+    <!--
+    <table width="100%">
+        <tr>
+            <td width="60%" align="center">
+                <figure class="img1">
+                    <img src="{% static 'bg.png' %}">
+                    <figcaption>मुझमें hai Wo dum</figcaption>
+                </figure>
+            </td>
+            <td width="20%">
+                <p class="but">
+                    <button onclick="location.href='{% url 'enqueryy' %}'">Send Enquery</button>
+                </p>
+            </td>
+            <td width="20%">
+                <div class="but">
+                    <table>
+                        <tr>
+                            <form method="POST" action="{% url 'search' %}">
+                                {% csrf_token %}
+                                <td><input type="text" name="prname"></td>
+                                <td><button style="margin-left: 2px;"><span class="material-symbols-outlined">search</span></button></td>
+                            </form>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table> -->
+</div>
+<ul class="basicl">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li>
+        <a href="{% url 'about' %}">About Us</a>
+    </li>
+    <li>
+        <div class="dropdown">
+            <button class="dropbtn" onclick='location.href="{% url "view" %}"'>Products
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <div class="header">
+                    <h2>Our Products</h2>
+                </div>
+                
+                <div class="row">
+                    {% for h, item in pro.items %}
+                    <div class="column">
+                        <h3>{{ h|title }}</h3>
+                        {% for i in item %}
+                            <form id="form1" method="POST" action="{% url 'desc' %}">
+                            {% csrf_token %}
+                                <button form="form1" name="pname" type="submit" class="nav_button" value="{{ i.name }}">{{ i.name|title }}</button>
+                            </form>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+</ul>

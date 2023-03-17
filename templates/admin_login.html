@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Admin Login</title>
+
+	<script type="text/javascript">
+		function myFunction() 
+		{
+		  	var x = document.getElementById("password");
+		  	if (x.type == "password") 
+		  	{
+		    	x.type = "text";
+		  	} 
+		  	else 
+		  	{
+		    	x.type = "password";
+		  	}
+		}
+	</script>
+</head>
+<body>
+	<div class="border">
+		<div>
+			{% include "navbar.html" %}    
+		</div>
+		<div>
+			<form method="POST" action="{% url 'login' %}">
+				{% csrf_token %}
+				<fieldset class="field" style="width: 25%; margin: auto;">
+					<table>
+						<tr>
+							<th><label>Username</label></th>
+							<td><input type="text" name="username"></td>
+						</tr>
+
+						<tr>
+							<th><label>Password</label></th>
+							<td><input type="password" id="password" name="pass"></td>
+						</tr>
+
+						<tr style="text-align: right;">
+							<td colspan="2" style="border: none;">
+								<input type="checkbox" onclick="myFunction()" id="show"><label for="show">Show Password</label>
+							</td>
+						</tr>
+
+						<tr>
+							<th colspan="2"><input type="submit" value="Login"></th>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

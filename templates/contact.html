@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Contact Us</title>
+</head>
+<body>
+	<div class="border">
+		<div>
+			{% include "navbar.html" %}    
+		</div>
+
+		<div style="display: inline-flex; flex-wrap: wrap; flex-direction: row;">
+			<div>
+				{% include "contact_form.html" %}
+			</div>
+			<div>
+				<fieldset class="field" style="border: none; font-size: 20px;">
+					<table>
+						<tr>
+							<th colspan="2" style="font-size: 24px; color: #df6152;">Reach Us</th>
+						</tr>
+						<tr>
+							<td><span class="material-symbols-outlined">location_on</span></td>
+							<td colspan="2">
+								1/55, Ram Bazar, Kashmere Gate, Delhi-110006, India
+								<br>
+								<i><a style="text-decoration: none; color: white;" href="https://www.google.com/maps/place/Roshni+India+Motor/@28.6640825,77.2223102,17z/data=!3m1!4b1!4m5!3m4!1s0x390cfd094e431fb7:0x7fd305b715f6fe10!8m2!3d28.6640778!4d77.2248905" target="_blank"><span style="font-size: 20px;" class="material-symbols-outlined">turn_slight_right</span>Get Directions</a></i>
+							</td>
+						</tr>
+
+						<tr>
+							<td><span class="material-symbols-outlined">account_circle</span></td>
+							<td colspan="2">
+								Vinod Rathore [CEO]
+							</td>
+						</tr>
+
+						<tr>
+							<td><span class="material-symbols-outlined">call</span></td>
+							<td width="25%" style="border-right: 2px solid white;">
+								08046054377
+							</td>
+							<td>
+								<a href="https://wa.me/918046054377" target="_blank"><span style="font-size: 20px; text-decoration: none; color: white;" class="material-symbols-outlined">message</span></a>
+							</td>
+						</tr>
+
+						<tr>
+							<td><span class="material-symbols-outlined">mail</span></td>
+							<td colspan="2">
+								rimfilter@gmail.com
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2">
+								<button class="rev" onclick="location.href='{% url 'reviews' %}'" style="width: 100%; padding: 10px">Submit Review</button>
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+
+	</div>
+</body>

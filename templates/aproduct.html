@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Our Products</title>
+</head>
+<body>
+	<div class="border">
+		<div>
+			{% include "navbar.html" %}    
+		</div>
+
+		<div class="go_to">
+			{% for h, item in pro.items %}
+				<button onclick="location.href='#{{ h }}'">{{ h }}</button>
+			{% endfor %}
+		</div>
+
+		<div class="pro_list">
+			{% for h, item in pro.items %}
+				<h2 id="{{ h }}">{{ h }}</h2>
+				<div class="pricing-box-container">
+				{% for i in item %}
+					<div style="background-image: url('{{ i.img.url  }}');" class="pricing-box pricing-box-bg-image text-center">
+						<h4>{{ i.name }}</h4>
+						<p class="price"><sup>Rs.</sup>{{i.price}}<sub>/Piece</sub></p>
+						<ul class="features-list">
+							<li><strong>{{ i.feature }}</strong></li>
+							<li>Brand - <strong>{{ i.brand }}</strong></li>
+							<li>Type - <strong>{{ i.filter_type }}</strong></li>
+							<li>Suitable for <strong>{{ i.usage }}</strong></li>
+						</ul>
+						<form id="form1" method="POST" action="{% url 'desc' %}">
+							{% csrf_token %}
+							<button form="form1" name="pname" type="submit" class="btn-primary" value="{{ i.name }}">More</button>
+						</form>
+					</div>
+				{% endfor %}
+				</div>
+				{% empty %}
+					<h1>No Products to Display</h1>
+			{% endfor %}
+		</div>
+
+		<div>
+			{% include "footer.html" %}    
+		</div>
+	</div>
+</body>
+</html>

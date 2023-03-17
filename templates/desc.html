@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>{{ a.name }}</title>
+</head>
+<body>
+	<div class="border">
+		<div>
+			{% include "navbar.html" %}    
+		</div>
+
+		<div class="desc-content">
+			<h2>{{ a.name }}</h2>
+
+			<table width="80%">
+				<tr>
+					<td rowspan="7" style="width: 30%;">
+						<img src="{{ a.img.url }}">
+					</td>
+					<th>Price</th>
+					<td>Rs.{{ a.price }} /Per Piece</td>
+				</tr>
+
+				<tr>
+					<th>Minimum Order</th>
+					<td>{{ a.min_order }}</td>
+				</tr>
+
+				<tr>
+					<th>Material</th>
+					<td>{{ a.material }}</td>
+				</tr>
+
+				<tr>
+					<th>Filter Type</th>
+					<td>{{ a.filter_type }}</td>
+				</tr>
+
+				<tr>
+					<th>Usage</th>
+					<td>{{ a.usage }}</td>
+				</tr>
+
+				<tr>
+					<th>Brand</th>
+					<td>{{ a.brand }}</td>
+				</tr>
+
+				<tr>
+					<th>Featuer</th>
+					<td>{{ a.feature }}</td>
+				</tr>
+			</table>
+			<h3>{{ a.desc }}</h3>
+			<button class="rev" onclick="location.href='{% url 'enqueryy' %}'">Submit Enquery</button>
+		</div>
+
+		<div class="box"></div>
+
+		<div class="slider">
+			{% include 'slider.html' %}
+		</div>
+
+		<div>
+			{% include "footer.html" %}    
+		</div>
+	</div>
+</body>
+</html>

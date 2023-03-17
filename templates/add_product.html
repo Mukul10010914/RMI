@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Add Product</title>
+</head>
+<body>
+	<div class="border">
+		<div>
+			{% include "navbar.html" %}    
+		</div>
+		<button onclick="location.href='{% url 'ahome' %}'" style="background-color: transparent; border: none; color: #cccccc; cursor: pointer;"><span class="material-symbols-outlined">arrow_back</span></button>
+		<div class="form_al">
+			<form method="POST" action="{% url 'add_item' %}" enctype="multipart/form-data">
+				{% csrf_token %}
+				<fieldset class="field" style="font-family: Georgia, serif;">
+					<legend>Add Product</legend>
+					<table width="100%">
+						<tr>
+							<th><label>Image</label></th>
+							<td>{{ form.img }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Category</label></th>
+							<td>{{ form.cat }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Name</label></th>
+							<td>{{ form.name }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Price</label></th>
+							<td>{{ form.price }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Minimum Order</label></th>
+							<td>{{ form.min_order }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Material</label></th>
+							<td>{{ form.material }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Filter Type</label></th>
+							<td>{{ form.filter_type }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Usage</label></th>
+							<td>{{ form.usage }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Brand</label></th>
+							<td>{{ form.brand }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Feature</label></th>
+							<td>{{ form.feature }}</td>
+						</tr>
+
+						<tr>
+							<th><label>Description</label></th>
+							<td>{{ form.desc }}</td>
+						</tr>
+
+						<tr>
+							<th colspan="2"><input type="submit"></th>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+		</div>
+
+		<div style="margin-top: 5%;" class="form_al">
+			<form method="POST" action="{% url 'add_cat' %}">
+				{% csrf_token %}
+				<fieldset class="field" style="font-family: Georgia, serif;">
+					<legend>Add Category</legend>
+					<table width="100%">
+						<tr>
+							<th><label>Name</label></th>
+							<td><input type="text" name="cname"></td>
+						</tr>
+
+						<tr>
+							<th colspan="2"><input type="submit"></th>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

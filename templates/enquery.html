@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Inquery From</title>
+	<style type="text/css">
+		.field
+		{
+		    border: 5px double #df6152;
+		}
+	</style>
+</head>
+<body>
+	<div class="border">
+		<div>
+			{% include "navbar.html" %}    
+		</div>
+
+		<div class="form_al">
+			<form method="POST" action="{% url 'enqueryy' %}">
+				{% csrf_token %}
+				<fieldset class="field">
+					<table width="100%">
+						<tr>
+							<th>CO. Name</th>
+							<td><input type="text" name="coname"></td>
+						</tr>
+
+						<tr>
+							<th>Personnel Name</th>
+							<td><input type="text" name="pname"></td>
+						</tr>
+
+						<tr>
+							<th>Email Address</th>
+							<td><input type="text" name="email"></td>
+						</tr>
+
+						<tr>
+							<th>Mobile Number</th>
+							<td><input type="text" name="number"></td>
+						</tr>
+
+						<tr>
+							<th>Message</th>
+							<td><textarea name="desc"></textarea></td>
+						</tr>
+
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								<input style="width: 75%;" type="submit" name="submit">
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+		</div>
+
+		<div>
+			{% include 'footer.html' %}
+		</div>
+	</div>
+</body>
+</html>
